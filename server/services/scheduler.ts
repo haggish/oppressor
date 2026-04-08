@@ -1,4 +1,4 @@
-import { Database } from "bun:sqlite";
+import type { Database } from "bun:sqlite";
 import { blockDevice, unblockDevice } from "./fritzbox";
 import type { DayOfWeek } from "../../src/types";
 
@@ -26,10 +26,10 @@ export class Scheduler {
 
   start() {
     // Check every 60 seconds
-    this.interval = setInterval(() => this.tick(), 60_000);
+    this.interval = setInterval(() => { void this.tick(); }, 60_000);
     console.log("Scheduler started — checking every 60s");
     // Run immediately on start
-    this.tick();
+    void this.tick();
   }
 
   stop() {

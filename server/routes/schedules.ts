@@ -1,4 +1,4 @@
-import { Database } from "bun:sqlite";
+import type { Database } from "bun:sqlite";
 
 export async function scheduleRoutes(req: Request, db: Database): Promise<Response> {
   const url = new URL(req.url);

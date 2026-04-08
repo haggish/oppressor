@@ -1,4 +1,4 @@
-import { Database } from "bun:sqlite";
+import type { Database } from "bun:sqlite";
 import { getHosts, blockDevice, unblockDevice } from "../services/fritzbox";
 
 export async function deviceRoutes(req: Request, db: Database): Promise<Response> {
@@ -20,7 +20,7 @@ export async function deviceRoutes(req: Request, db: Database): Promise<Response
     try {
       const hosts = await getHosts();
       return Response.json({ data: hosts }, { headers });
-    } catch (err) {
+    } catch {
       return Response.json(
         { error: "Failed to reach Fritz!Box" },
         { status: 502, headers }
@@ -58,7 +58,7 @@ export async function deviceRoutes(req: Request, db: Database): Promise<Response
   // POST /api/devices/:id/block — immediate manual block
   const blockMatch = path.match(/^\/api\/devices\/([^/]+)\/block$/);
   if (req.method === "POST" && blockMatch) {
-    const device = db.query("SELECT * FROM devices WHERE id = ?").get(blockMatch[1]!) as any;
+    const device = db.query("SELECT * FROM devices WHERE id = ?").get(blockMatch[1]!) as { mac: string } | null;
     if (!device) return Response.json({ error: "Not found" }, { status: 404, headers });
 
     const ok = await blockDevice(device.mac);
@@ -68,7 +68,7 @@ export async function deviceRoutes(req: Request, db: Database): Promise<Response
   // POST /api/devices/:id/unblock — immediate manual unblock
   const unblockMatch = path.match(/^\/api\/devices\/([^/]+)\/unblock$/);
   if (req.method === "POST" && unblockMatch) {
-    const device = db.query("SELECT * FROM devices WHERE id = ?").get(unblockMatch[1]!) as any;
+    const device = db.query("SELECT * FROM devices WHERE id = ?").get(unblockMatch[1]!) as { mac: string } | null;
     if (!device) return Response.json({ error: "Not found" }, { status: 404, headers });
 
     const ok = await unblockDevice(device.mac);

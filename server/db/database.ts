@@ -1,4 +1,4 @@
-import { Database } from "bun:sqlite";
+import type { Database } from "bun:sqlite";
 
 export function initDatabase(db: Database) {
   db.exec("PRAGMA foreign_keys = ON");
