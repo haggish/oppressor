@@ -8,9 +8,10 @@ export function makeDb(): Database {
 }
 
 export function req(method: string, path: string, body?: unknown): Request {
-  return new Request(`http://localhost${path}`, {
-    method,
-    headers: body ? { "Content-Type": "application/json" } : undefined,
-    body: body ? JSON.stringify(body) : undefined,
-  });
+  const init: RequestInit = { method };
+  if (body !== undefined) {
+    init.headers = { "Content-Type": "application/json" };
+    init.body = JSON.stringify(body);
+  }
+  return new Request(`http://localhost${path}`, init);
 }
