@@ -68,19 +68,6 @@ Restart=always
 WantedBy=multi-user.target
 ```
 
-## Mobile build (via Capacitor)
-
-```bash
-# Add mobile platforms
-quasar mode add capacitor
-cd src-capacitor
-bun install @capacitor/core @capacitor/cli
-
-# Build and open in Xcode / Android Studio
-quasar build -m capacitor -T ios
-quasar build -m capacitor -T android
-```
-
 ## API
 
 | Method | Endpoint                      | Description              |
@@ -88,6 +75,8 @@ quasar build -m capacitor -T android
 | GET    | /api/devices                  | List managed devices     |
 | GET    | /api/devices/discover         | Scan Fritz!Box hosts     |
 | POST   | /api/devices                  | Add device to manage     |
+| PATCH  | /api/devices/:id              | Rename device            |
+| DELETE | /api/devices/:id              | Remove device            |
 | POST   | /api/devices/:id/block        | Block immediately        |
 | POST   | /api/devices/:id/unblock      | Unblock immediately      |
 | GET    | /api/schedules                | List all schedules       |
