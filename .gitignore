@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Environment — contains credentials, never commit
+.env
+
+# Database
+data/
+
+# Build output
+dist/
+
+# Quasar generated files
+.quasar/
+
+# Temp files emitted by quasar.config compilation
+quasar.config.ts.temporary.compiled.*.mjs
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,37 @@
+{
+  "name": "oppressor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun run scripts/dev.ts",
+    "dev:frontend": "quasar dev",
+    "dev:backend": "bun --watch server/index.ts",
+    "build": "quasar build",
+    "build:backend": "bun build server/index.ts --outdir dist/server --target bun",
+    "start": "bun dist/server/index.js",
+    "seed": "bun run scripts/seed.ts",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.16.0",
+    "pinia": "^2.1.0",
+    "quasar": "^2.16.0",
+    "vue": "^3.4.0",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@quasar/app-vite": "^2.0.0",
+    "@types/bun": "latest",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "@vue/eslint-config-typescript": "^14.7.0",
+    "autoprefixer": "^10.4.27",
+    "eslint": "9",
+    "eslint-plugin-vue": "^10.8.0",
+    "globals": "^17.4.0",
+    "typescript": "^6.0.2",
+    "vite-plugin-checker": "^0.12.0",
+    "vue-tsc": "^3.2.6"
+  }
+}
