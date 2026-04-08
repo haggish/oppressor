@@ -7,6 +7,15 @@ const DAY_MAP: Record<number, DayOfWeek> = {
   4: "thu", 5: "fri", 6: "sat",
 };
 
+/** Exported for testing */
+export function isInBlockWindow(current: string, from: string, until: string): boolean {
+  if (from <= until) {
+    return current >= from && current < until;
+  } else {
+    return current >= from || current < until;
+  }
+}
+
 export class Scheduler {
   private db: Database;
   private interval: ReturnType<typeof setInterval> | null = null;
@@ -64,13 +73,7 @@ export class Scheduler {
 
   /** Handles overnight windows like 23:00 → 06:00 */
   private isInBlockWindow(current: string, from: string, until: string): boolean {
-    if (from <= until) {
-      // Same-day window: e.g. 09:00 → 17:00
-      return current >= from && current < until;
-    } else {
-      // Overnight window: e.g. 23:00 → 06:00
-      return current >= from || current < until;
-    }
+    return isInBlockWindow(current, from, until);
   }
 
   private log(deviceId: string, action: string) {

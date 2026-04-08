@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build frontend
+        run: bun run build
+
+      - name: Build backend
+        run: bun run build:backend
+
+      - name: Package release
+        run: |
+          mkdir -p release/oppressor
+          cp -r dist/ release/oppressor/
+          cp .env.example release/oppressor/
+          cp README.md release/oppressor/
+          cd release && tar -czf oppressor-${{ github.ref_name }}.tar.gz oppressor/
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release/oppressor-${{ github.ref_name }}.tar.gz
+          generate_release_notes: true

@@ -107,7 +107,8 @@ export async function unblockDevice(mac: string): Promise<boolean> {
   }
 }
 
-function extractXmlValue(xml: string, tag: string): string {
+/** Exported for testing */
+export function extractXmlValue(xml: string, tag: string): string {
   const match = xml.match(new RegExp(`<${tag}>([^<]*)</${tag}>`));
   return match ? match[1]! : "";
 }
