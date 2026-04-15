@@ -37,7 +37,7 @@ jobs:
           cd release && tar -czf oppressor-${{ github.ref_name }}.tar.gz oppressor/
 
       - name: Create GitHub release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: release/oppressor-${{ github.ref_name }}.tar.gz
           generate_release_notes: true
