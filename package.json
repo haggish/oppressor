@@ -14,7 +14,7 @@
     "test": "bun test"
   },
   "dependencies": {
-    "@quasar/extras": "^1.16.0",
+    "@quasar/extras": "^2.0.1",
     "pinia": "^3.0.4",
     "quasar": "^2.16.0",
     "vue": "^3.4.0",
