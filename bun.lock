@@ -5,7 +5,7 @@
     "": {
       "name": "oppressor",
       "dependencies": {
-        "@quasar/extras": "^1.18.0",
+        "@quasar/extras": "^2.1.0",
         "pinia": "^3.0.4",
         "quasar": "^2.35.5",
         "vue": "^3.5.45",
@@ -218,7 +218,7 @@
 
     "@quasar/art": ["@quasar/art@1.0.0", "", {}, "sha512-IAV8Qg2QM3U2alywUcCELyOlHCUNbJYmiVDRTLgcgmyBlQwo3Wk33eHAyT9cpnV5CqlmuYXe6UZt0Ybi1m0lMA=="],
 
-    "@quasar/extras": ["@quasar/extras@1.18.0", "", {}, "sha512-hIqqw56sKGujWA3sTIT1ItlVglD+eA3hAWDVxY4qjA4/BSgYJDHk6ymJCbsDPIJFT7DJsG/F3A67vELXbBAIvA=="],
+    "@quasar/extras": ["@quasar/extras@2.1.0", "", {}, "sha512-WCqHXr3loA9bP1DUuzmCwuNXnHa9GKosAtjwJnr1DpngO68a0JoiyVuoXzc760tCBArdFLD/YAUHvItPbk6V2Q=="],
 
     "@quasar/render-ssr-error": ["@quasar/render-ssr-error@2.2.6", "", { "dependencies": { "stack-trace": "^1.0.0" } }, "sha512-v8Q/uxmPwlBbN6lC/fObFk564A7CGFTVnObmdchhDMj817t17P6RsIyFVA8BUwuW0MdG2AWrrjpbhnXIgzuzvA=="],
 
