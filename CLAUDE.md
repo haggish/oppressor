@@ -19,6 +19,8 @@ bun test                   # Run all tests
 bun test <file>            # Run a single test file
 
 bun run seed               # Seed the SQLite DB with test devices
+
+bun run check:dev          # Smoke-test the Quasar dev server (also runs in CI)
 ```
 
 The frontend dev server uses `VITE_API_URL=http://localhost:3000` to proxy API calls. The backend reads `.env` for credentials — copy `.env.example` to `.env` before first run.
