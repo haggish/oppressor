@@ -1,7 +1,7 @@
 // Configuration for your app
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file
 
-import { defineConfig } from '#q-app/wrappers';
+import { defineConfig } from '#q-app';
 
 export default defineConfig((/* ctx */) => {
   return {
@@ -41,6 +41,13 @@ export default defineConfig((/* ctx */) => {
         strict: true,
         vueShim: true,
         // extendTsConfig (tsConfig) {}
+      },
+
+      env: {
+        // Quasar CLI v3 only exposes QCLI_-prefixed env vars to client code.
+        // Keep VITE_ too so VITE_API_URL (set by scripts/dev.ts) still reaches the frontend.
+        // Never give backend secrets (FRITZ_*, etc.) either prefix.
+        clientPrefix: ['QCLI_', 'VITE_'],
       },
 
       vueRouterMode: 'hash', // available values: 'hash', 'history'
