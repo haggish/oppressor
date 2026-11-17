@@ -1,9 +1,15 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
+  # "bun" (not "npm") so Dependabot updates bun.lock too; otherwise CI's
+  # `bun install --frozen-lockfile` rejects every PR.
+  - package-ecosystem: "bun"
     directory: "/"
     schedule:
       interval: "weekly"
+    ignore:
+      # TypeScript 7 isn't supported by vue-tsc or typescript-eslint yet.
+      - dependency-name: "typescript"
+        versions: [">=7"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
