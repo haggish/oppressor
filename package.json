@@ -11,7 +11,8 @@
     "build:backend": "bun build server/index.ts --outdir dist/server --target bun",
     "start": "bun dist/server/index.js",
     "seed": "bun run scripts/seed.ts",
-    "test": "bun test"
+    "test": "bun test",
+    "check:dev": "bash scripts/check-dev-server.sh"
   },
   "dependencies": {
     "@quasar/extras": "^2.1.0",

@@ -31,3 +31,6 @@ jobs:
 
       - name: Build backend
         run: bun run build:backend
+
+      - name: Dev server smoke test
+        run: bun run check:dev
