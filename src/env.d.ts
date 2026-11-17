@@ -1,7 +1,8 @@
-declare namespace NodeJS {
-  interface ProcessEnv {
-    NODE_ENV: string;
-    VUE_ROUTER_MODE: 'hash' | 'history' | 'abstract' | undefined;
-    VUE_ROUTER_BASE: string | undefined;
-  }
+/**
+ * Types for custom import.meta.env variables that Quasar CLI doesn't
+ * add automatically.
+ */
+interface ImportMetaEnv {
+  /** Backend base URL. Exposed to the client via build.env.clientPrefix in quasar.config.ts. */
+  readonly VITE_API_URL?: string;
 }
