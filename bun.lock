@@ -8,7 +8,7 @@
         "@quasar/extras": "^2.1.0",
         "@vue/devtools-api": "^8.2.1",
         "pinia": "^4.1.0",
-        "quasar": "^2.35.5",
+        "quasar": "^2.35.6",
         "vue": "^3.5.46",
         "vue-router": "^5.5.1",
       },
@@ -649,7 +649,7 @@
 
     "quansync": ["quansync@1.0.0", "", {}, "sha512-5xZacEEufv3HSTPQuchrvV6soaiACMFnq1H8wkVioctoH3TRha9Sz66lOxRwPK/qZj7HPiSveih9yAyh98gvqA=="],
 
-    "quasar": ["quasar@2.35.5", "", {}, "sha512-SHI5EoLxEkcXYFm8qWcTwjgPku4SZgQXxfqCK8XocHKA89/TuhgEmbDPKaLhN6CsWD0wnU/ca3qMDxhstw+NHA=="],
+    "quasar": ["quasar@2.35.6", "", {}, "sha512-BxQLJNzV5gK+DqgEqv2dl/PJWAcNRnedV5ozwjLpJ2OWf1LTrDXdR8BH09TY/HyXR8xgYiyHH35NxRieDlo5og=="],
 
     "queue-microtask": ["queue-microtask@1.2.3", "", {}, "sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A=="],
 
